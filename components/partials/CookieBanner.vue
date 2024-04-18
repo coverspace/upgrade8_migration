@@ -7,7 +7,7 @@
     <form
       v-for="(item, index) in content"
       v-if="content"
-      class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:w-1/3 p-8 gap-8 rounded-lg shadow-lg border flex flex-col justify-between items-center bg-gray-100"
+      class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:w-1/3 p-8 gap-8 rounded-lg shadow-lg border flex flex-col justify-between items-center bg-gray-50"
     >
       <div class="flex flex-col justify-start items-start gap-4">
         <h1
@@ -38,7 +38,7 @@
         <button
           type="submit"
           @click="acceptCookies"
-          class="text-xs xl:text-xl text-white font-normal rounded-3xl px-8 py-2 bg-gradient-to-r from-[#b1913620] to-[#d8c35920] border border-transparent cursor-pointer"
+          class="text-xs xl:text-xl text-white font-normal rounded-3xl px-8 py-2 border border-transparent cursor-pointer"
         >
           {{ item.button_accept }}
         </button>
