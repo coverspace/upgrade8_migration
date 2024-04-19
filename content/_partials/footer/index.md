@@ -8,7 +8,7 @@ footer_buttons:
     link: "/privacy"
 
   - button:
-    title: "Term of Service"
+    title: "Terms of Service"
     link: "/terms"
 
   - button:

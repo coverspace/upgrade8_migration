@@ -23,13 +23,13 @@
       <div
         class="hidden xl:flex flex-row justify-between items-center w-3/5 mx-auto"
       >
-        <div class="flex flex-row justify-between items-center gap-6 py-4">
+        <div class="flex flex-row justify-between items-center gap-3 py-4">
           <a href="/">
             <NuxtImg src="logo_only.png" class="w-40 h-auto" />
           </a>
           <h1 class="text-3xl text-upgrade_pink font-medium">Upgrade-8</h1>
         </div>
-        <ul class="flex flex-row justify-end items-center gap-14">
+        <ul class="flex flex-row justify-end items-center gap-8">
           <li
             v-for="(item, index) in navigationTree.slice(0, 3)"
             :key="index"
