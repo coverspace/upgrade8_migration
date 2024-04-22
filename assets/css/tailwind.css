@@ -7,8 +7,8 @@ body {
   font-family: "Dancing Script", Arial;
   padding: 0;
   margin: 0;
-  /* background: #f1efe2; */
   background-image: url("./../images/dot_pattern.svg");
+  background-color: #f1efe2;
   background-repeat: repeat;
 }
 
@@ -33,6 +33,13 @@ body {
   }
   .text-upgrade_yellow {
     color: #e3cf4d;
+  }
+
+  .bg-upgrade_gold {
+    background-color: #bc9e43;
+  }
+  .text-upgrade_gold {
+    color: #bc9e43;
   }
 
   .bg-upgrade_lightgreen {

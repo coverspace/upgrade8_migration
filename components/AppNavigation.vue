@@ -33,12 +33,13 @@
           <li
             v-for="(item, index) in navigationTree.slice(0, 3)"
             :key="index"
-            class="text-3xl text-upgrade_pink"
+            class="text-3xl text-upgrade_pink hover:text-upgrade_gold"
           >
             <NuxtLink :to="item._path === '/main' ? '/' : item._path">
               {{ item.children[0].title }}
             </NuxtLink>
           </li>
+          <li>🇬🇧</li>
         </ul>
       </div>
     </div>

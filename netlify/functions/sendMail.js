@@ -18,7 +18,7 @@ exports.handler = async (event) => {
 
     const emailData = {
       from: `${name} <${email}>`,
-      to: "office@smartstake.ai",
+      to: "info@upgrade-8.net",
       subject: "New Contact Form Submission",
       text: message,
     };

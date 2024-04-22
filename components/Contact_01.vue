@@ -1,21 +1,88 @@
 <template>
-  <div class="grid grid-cols-12">
+  <div class="grid grid-cols-12 my-16 xl:container mx-auto">
     <div class="col-span-12">
-      <div
-        class="flex flex-col justify-start items-center relative landing-page"
-      >
-        <ContentDoc path="contact/block_01" v-slot="{ doc }">
-          <ContentRenderer
-            :value="doc"
-            class="text-base xl:text-6xl w-3/5 xl:w-1/2 text-center font-light text-gray-500 uppercase"
-          />
-          <h1
-            class="text-xs xl:text-xl w-3/5 xl:w-1/2 text-center font-medium text-gray-50"
-          >
-            {{ doc.description }}
-          </h1>
-        </ContentDoc>
+      <div class="flex flex-col justify-center items-center">
+        <div
+          class="flex flex-col justify-center items-center gap-4 xl:gap-10 my-8 xl:my-16"
+        >
+          <ContentDoc path="contact/block_01" v-slot="{ doc }">
+            <h1
+              class="text-2xl xl:text-7xl text-center font-bold bg-gradient-to-r from-[#d051b7] to-[#b3d692] inline-block text-transparent bg-clip-text uppercase"
+            >
+              {{ doc.label }}
+            </h1>
+
+            <ContentRenderer
+              :value="doc"
+              class="xl:text-3xl xl:w-2/3 mx-8 xl:text-center text-justify mb-4 font-medium text-gray-500"
+            />
+          </ContentDoc>
+        </div>
       </div>
+    </div>
+
+    <div class="col-span-12 mx-auto xl:mx-0 xl:col-span-6">
+      <NuxtImg src="contact_1.svg" />
+      <a href="https://storyset.com/app" class="text-gray-600"
+        >App illustrations by Storyset</a
+      >
+    </div>
+    <div class="col-span-12 px-4 xl:mx-0 xl:col-span-6 w-full mt-4 xl:mt-0">
+      <ContentDoc path="contact/block_01" v-slot="{ doc }">
+        <form
+          method="POST"
+          action="/.netlify/functions/sendMail"
+          class="flex flex-col justify-start items-start gap-4 xl:gap-8 px-8 py-12 shadow-xl bg-gray-50 rounded"
+        >
+          <h1 class="text-gray-500 font-bold text-2xl">
+            {{ doc.form_title }}
+          </h1>
+          <div class="flex flex-col justify-start items-start w-full">
+            <label for="name" class="text-gray-500 font-family-arial"
+              >Name <small class="text-smart_orange_01">&ast;</small></label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minlength="3"
+              class="border bg-gray-50 w-full focus:outline-none focus:border-gray-400 py-2 px-1 text-gray-500 font-family-arial"
+            />
+          </div>
+          <div class="flex flex-col justify-start items-start w-full">
+            <label for="email" class="text-gray-500 font-family-arial"
+              >Email <small class="text-smart_orange_01">&ast;</small></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              minlength="3"
+              class="border bg-gray-50 w-full focus:outline-none focus:border-gray-400 py-2 px-1 text-gray-500 font-family-arial"
+            />
+          </div>
+          <div class="flex flex-col justify-start items-start w-full">
+            <label for="comment" class="text-gray-500 font-family-arial"
+              >Message <small class="text-smart_orange_01">&ast;</small></label
+            >
+            <textarea
+              id="comment"
+              name="comment"
+              required
+              minlength="3"
+              class="border bg-gray-50 w-full focus:outline-none focus:border-gray-400 py-2 px-1 text-gray-500 font-family-arial"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="text-xs xl:text-xl text-gray-50 font-normal rounded bg-upgrade_lightgreen px-8 py-2 cursor-pointer font-family-arial"
+          >
+            {{ doc.form_button }}
+          </button>
+        </form>
+      </ContentDoc>
     </div>
   </div>
 </template>
