@@ -7,27 +7,27 @@
         >
           <ContentDoc path="contact/block_01" v-slot="{ doc }">
             <h1
-              class="text-2xl xl:text-7xl text-center font-bold bg-gradient-to-r from-[#d051b7] to-[#b3d692] inline-block text-transparent bg-clip-text uppercase"
+              class="text-2xl xl:text-7xl text-center font-bold bg-upgrade_gradient"
             >
               {{ doc.label }}
             </h1>
 
             <ContentRenderer
               :value="doc"
-              class="xl:text-3xl xl:w-2/3 mx-8 xl:text-center text-justify mb-4 font-medium text-gray-500"
+              class="xl:text-4xl mx-8 xl:text-center text-justify mb-4 font-medium text-gray-500"
             />
           </ContentDoc>
         </div>
       </div>
     </div>
 
-    <div class="col-span-12 mx-auto xl:mx-0 xl:col-span-6">
+    <div class="col-span-12 mx-auto xl:mx-0 xl:col-span-7">
       <NuxtImg src="contact_1.svg" />
       <a href="https://storyset.com/app" class="text-gray-600"
         >App illustrations by Storyset</a
       >
     </div>
-    <div class="col-span-12 px-4 xl:mx-0 xl:col-span-6 w-full mt-4 xl:mt-0">
+    <div class="col-span-12 px-4 xl:mx-0 xl:col-span-5 w-full mt-4 xl:mt-0">
       <ContentDoc path="contact/block_01" v-slot="{ doc }">
         <form
           method="POST"

@@ -7,7 +7,7 @@
         >
           <ContentDoc path="buy/block_01" v-slot="{ doc }">
             <h1
-              class="text-2xl xl:text-7xl text-center font-bold bg-gradient-to-r from-[#d051b7] to-[#b3d692] inline-block text-transparent bg-clip-text"
+              class="text-2xl xl:text-7xl text-center font-bold bg-upgrade_gradient"
             >
               {{ doc.label }}
             </h1>

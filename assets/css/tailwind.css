@@ -56,6 +56,10 @@ body {
     color: #698f43;
   }
 
+  .bg-upgrade_gradient {
+    @apply bg-gradient-to-r from-[#d051b7] to-[#b3d692] inline-block text-transparent bg-clip-text;
+  }
+
   .truncate-5 {
     overflow: hidden;
     -webkit-line-clamp: 5;
