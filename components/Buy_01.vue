@@ -42,7 +42,7 @@
               <p
                 class="text-gray-500 font-bold text-2xl flex flex-row justify-start items-start gap-4"
               >
-                <IconCheck class="w-8 h-auto text-green-700" />
+                <IconCheck class="w-8 h-auto text-upgrade_lightgreen" />
                 {{ item.set }}
               </p>
             </li>

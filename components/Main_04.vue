@@ -22,11 +22,11 @@
                   <div v-for="element in set" :key="element">
                     <template v-if="index > 0">
                       <div
-                        class="flex flex-col items-center xl:mb-4 font-family-arial"
+                        class="flex flex-col items-center mb-4 font-family-arial"
                       >
                         <div
                           @click="pickItem(index)"
-                          class="flex flex-row justify-between items-center bg-gray-50 shadow-lg cursor-pointer w-full"
+                          class="flex flex-row justify-between items-center bg-gray-50 shadow-lg cursor-pointer w-full py-2 xl:py-0"
                           :class="
                             index === activeItem
                               ? 'rounded-t-xl border-b'
@@ -39,7 +39,7 @@
                             {{ element.question }}
                           </h1>
                           <IconArrow
-                            class="w-10 h-auto text-smart_orange_01 p-2 mx-2 border rounded-full bg-white hover:bg-gray-50"
+                            class="w-10 h-auto text-upgrade_darkgreen p-2 mx-2 border rounded-full bg-white hover:bg-gray-50"
                             :class="{ 'rotate-180': index === activeItem }"
                           />
                         </div>
