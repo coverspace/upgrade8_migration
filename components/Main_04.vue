@@ -7,7 +7,7 @@
         >
           <ContentDoc path="main/block_04" v-slot="{ doc }">
             <h1
-              class="text-2xl xl:text-7xl text-center font-bold bg-upgrade_gradient py-2"
+              class="text-4xl xl:text-7xl text-center font-bold bg-upgrade_gradient py-2"
             >
               {{ doc.label }}
             </h1>

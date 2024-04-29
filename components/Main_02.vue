@@ -5,7 +5,7 @@
         <ContentDoc path="main/block_02" v-slot="{ doc }">
           <ContentRenderer
             :value="doc"
-            class="text-base xl:text-5xl w-3/5 xl:w-1/2 py-2 my-16 text-center font-light bg-upgrade_gradient"
+            class="text-4xl xl:text-7xl w-3/5 xl:w-1/2 py-2 my-16 text-center font-bold bg-upgrade_gradient"
           />
           <ul class="miletstones font-family-arial text-xl text-gray-500">
             <li style="--accent-color: #b3d692">
@@ -86,7 +86,7 @@
                   :alt="doc.profile_name"
                   class="w-full xl:w-1/2 h-auto profile_image"
                 />
-                <h1 class="mt-8 text-5xl text-gray-500 font-family-dancing">
+                <h1 class="mt-8 text-5xl text-upgrade_pink font-family-dancing">
                   {{ doc.profile_name }}
                 </h1>
               </div>
@@ -164,7 +164,7 @@ ul.miletstones {
       margin-inline: calc(var(--inlineP) * -1);
       text-align: center;
       background-color: var(--accent-color);
-      color: white;
+      color: #d051b7;
       font-size: 1.25rem;
       font-weight: 700;
       display: grid;
@@ -278,6 +278,27 @@ ul.miletstones {
         }
 
         border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  ul.miletstones {
+    display: block;
+    width: 100%;
+    padding: 0 1rem;
+
+    li {
+      display: block;
+      .date {
+        &::after {
+          display: none;
+        }
+      }
+
+      &::after {
+        display: none;
       }
     }
   }

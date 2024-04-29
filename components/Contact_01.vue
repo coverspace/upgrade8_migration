@@ -7,21 +7,21 @@
         >
           <ContentDoc path="contact/block_01" v-slot="{ doc }">
             <h1
-              class="text-2xl xl:text-7xl text-center font-bold bg-upgrade_gradient"
+              class="text-3xl md:text-5xl xl:text-7xl text-center font-bold bg-upgrade_gradient"
             >
               {{ doc.label }}
             </h1>
 
             <ContentRenderer
               :value="doc"
-              class="xl:text-4xl mx-8 xl:text-center text-justify mb-4 font-medium text-gray-500"
+              class="text-3xl xl:text-4xl xl:w-2/3 mx-8 xl:text-center text-justify mb-4 font-medium text-upgrade_pink"
             />
           </ContentDoc>
         </div>
       </div>
     </div>
 
-    <div class="col-span-12 mx-auto xl:mx-0 xl:col-span-7">
+    <div class="col-span-12 mx-auto xl:mx-0 xl:col-span-7 w-2/3 xl:w-full">
       <NuxtImg src="contact_1.svg" />
       <a href="https://storyset.com/app" class="text-gray-600"
         >App illustrations by Storyset</a
@@ -32,13 +32,13 @@
         <form
           method="POST"
           action="/.netlify/functions/sendMail"
-          class="flex flex-col justify-start items-start gap-4 xl:gap-8 px-8 py-12 shadow-xl bg-gray-50 rounded"
+          class="flex flex-col justify-start items-start gap-4 xl:gap-8 px-8 py-12 shadow-xl bg-gray-50 rounded mx-auto sm:w-3/4 xl:w-full"
         >
-          <h1 class="text-gray-500 font-bold text-2xl">
+          <h1 class="text-upgrade_pink font-bold text-2xl mx-auto">
             {{ doc.form_title }}
           </h1>
           <div class="flex flex-col justify-start items-start w-full">
-            <label for="name" class="text-gray-500 font-family-arial"
+            <label for="name" class="text-upgrade_pink font-family-arial"
               >Name <small class="text-smart_orange_01">&ast;</small></label
             >
             <input
@@ -51,7 +51,7 @@
             />
           </div>
           <div class="flex flex-col justify-start items-start w-full">
-            <label for="email" class="text-gray-500 font-family-arial"
+            <label for="email" class="text-upgrade_pink font-family-arial"
               >Email <small class="text-smart_orange_01">&ast;</small></label
             >
             <input
@@ -64,7 +64,7 @@
             />
           </div>
           <div class="flex flex-col justify-start items-start w-full">
-            <label for="comment" class="text-gray-500 font-family-arial"
+            <label for="comment" class="text-upgrade_pink font-family-arial"
               >Message <small class="text-smart_orange_01">&ast;</small></label
             >
             <textarea
@@ -77,7 +77,7 @@
           </div>
           <button
             type="submit"
-            class="text-xs xl:text-xl text-gray-50 font-normal rounded bg-upgrade_lightgreen px-8 py-2 cursor-pointer font-family-arial"
+            class="text-xs xl:text-xl text-upgrade_pink font-normal rounded bg-upgrade_lightgreen px-8 py-2 mx-auto xl:mx-0 cursor-pointer font-family-arial"
           >
             {{ doc.form_button }}
           </button>

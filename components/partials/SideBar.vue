@@ -1,17 +1,17 @@
 <template>
   <div
     v-show="setBar"
-    class="h-full overflow-hidden rounded-l-xl border border-gray-100 bg-gradient-to-r from-blue-300 to-gray-200"
+    class="h-full overflow-hidden rounded-l-xl border border-gray-100 bg-upgrade_lightgreen"
   >
-    <div class="flex flex-col justify-start items-start w-full h-full">
+    <div class="relative flex flex-col justify-start items-start w-full h-full">
       <div
-        class="flex flex-row justify-between items-center border-b-2 border-blue-500 w-full"
+        class="flex flex-row justify-between items-center border-b-2 border-[#d051b7] w-full"
       >
         <div
           class="flex flex-row justify-start items-center ml-6 gap-x-2 w-full"
         >
-          <IconSidebar class="w-8 h-auto text-gray-600" />
-          <h1 class="text-lg text-gray-600 font-semibold">Sidebar</h1>
+          <IconSidebar class="w-8 h-auto text-upgrade_pink" />
+          <h1 class="text-3xl text-upgrade_pink font-bold">Sidebar</h1>
         </div>
         <span @click="$emit('cancel')" class="ml-auto mr-0">
           <IconClose
@@ -27,12 +27,12 @@
         >
           <NuxtLink
             :to="item._path === '/main' ? '/' : item._path"
-            class="text-gray-600 font-medium text-xl pb-1"
+            class="text-upgrade_pink font-bold text-2xl pb-1"
           >
             {{ item.children[0].title }}
           </NuxtLink>
         </li>
-        <hr class="border-b border-blue-500 w-full" />
+        <hr class="border-b border-[#d051b7] w-full" />
         <li
           v-for="(item, index) in navigationTree.slice(3)"
           :key="index"
@@ -40,11 +40,34 @@
         >
           <NuxtLink
             :to="item._path === '/main' ? '/' : item._path"
-            class="text-gray-600 font-medium text-xl pb-1"
+            class="text-upgrade_pink font-bold text-2xl pb-1"
           >
             {{ item.children[0].title }}
           </NuxtLink>
         </li>
+        <hr class="border-b border-[#d051b7] w-full" />
+        <div v-for="item in langData" class="font-family-arial mt-4">
+          <ul
+            v-for="(lang, index) in item.languages"
+            :key="index"
+            class="flex flex-col justify-start items-start"
+          >
+            <li
+              @click="pickLang(index), $emit('cancel')"
+              class="flex flex-row justify-start items-center whitespace-nowrap text-lg text-left text-gray-600 my-1 mx-1 cursor-pointer"
+            >
+              <IconArrowItem
+                class="w-4 h-auto mr-2"
+                :class="
+                  index === activeLang
+                    ? 'text-upgrade_pink'
+                    : 'text-transparent'
+                "
+              />
+              {{ lang.language }}
+            </li>
+          </ul>
+        </div>
       </ul>
     </div>
   </div>
@@ -53,6 +76,7 @@
 <script setup>
 import IconClose from "@/components/icons/IconClose.vue";
 import IconSidebar from "@/components/icons/IconSidebar.vue";
+import IconArrowItem from "@/components/icons/IconArrowItem.vue";
 
 const props = defineProps({
   setBar: {
@@ -65,6 +89,16 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["cancel"]);
+
+const activeLang = ref(0);
+
+const pickLang = (index) => {
+  activeLang.value = index;
+};
+
+const { data: langData } = await useAsyncData("languages", () => {
+  return queryContent("/_partials/languages").where({ _partial: true }).find();
+});
 
 // watch(
 //   () => props.setBar,
@@ -83,7 +117,7 @@ const emit = defineEmits(["cancel"]);
   content: "•";
   margin-left: -16px;
   position: absolute;
-  color: gray;
+  color: #d051b7;
 }
 
 .router-link-exact-inactive::before {

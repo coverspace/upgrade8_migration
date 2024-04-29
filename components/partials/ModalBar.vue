@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="setModal"
-    class="fixed top-0 bottom-0 right-0 left-0 w-full h-full bg-[#00000050] overflow-y-scroll"
+    class="fixed top-0 bottom-0 right-0 left-0 w-full h-full bg-[#00000050] overflow-y-scroll z-10"
   >
     <button
       @click="$emit('cancel')"
@@ -13,40 +13,26 @@
     </button>
 
     <div
-      class="absolute xl:top-20 left-1/2 transform -translate-x-1/2 w-full xl:w-1/2 h-full p-4"
+      class="absolute xl:top-20 left-1/2 transform -translate-x-1/2 w-full xl:w-1/3 h-full p-4"
     >
       <div
         class="flex flex-col justify-start items-start gap-4 w-full bg-gray-100 p-6 rounded-lg"
       >
         <div
-          v-for="guide in guidesData.guides"
-          :key="guide"
-          class="flex flex-row justify-center items-center w-full"
+          v-for="desc in desData"
+          :key="desc"
+          class="flex flex-col justify-center items-center gap-6 w-full"
         >
-          <div
-            v-for="item in guide"
-            :key="item"
-            class="flex flex-col justify-start items-start w-full"
-          >
-            <h1 class="text-2xl text-gray-600">{{ item.title }}</h1>
-            <p
-              v-html="formatDescription(item.description)"
-              class="text-lg text-gray-500 text-justify my-2"
-            ></p>
-            <NuxtImg
-              v-if="item.image"
-              :src="item.image"
-              class="m-0 p-0 w-full h-full bg-center bg-no-repeat bg-cover bg-fixed rounded-md"
-            />
-            <NuxtLink
-              :to="item.link"
-              target="_blank"
-              class="text-base w-full xl:w-auto xl:ml-auto xl:mr-0 my-2 xl:my-4 whitespace-nowrap text-white font-semibold uppercase rounded-3xl px-8 py-2 bg-gradient-to-r from-[#780072] to-[#e00019] border-2 border-[#d43024] cursor-pointer"
-            >
-              {{ item.button }}
-            </NuxtLink>
-            <hr class="border-b border-gray-300 w-full my-2" />
-          </div>
+          <NuxtImg
+            :src="desc.image"
+            class="rounded-lg w-[350px] sm:w-[250px] shadow-xl"
+          />
+          <h1 class="text-base xl:text-3xl text-gray-600">
+            {{ desc.element }}
+          </h1>
+          <p class="text-base xl:text-2xl text-justify text-gray-600">
+            {{ desc.description }}
+          </p>
         </div>
       </div>
       <hr class="border border-transparent mt-4 w-full" />
@@ -61,7 +47,7 @@ const props = defineProps({
   setModal: {
     type: Boolean,
   },
-  guidesData: {
+  desData: {
     type: Array,
     default: () => [],
   },
