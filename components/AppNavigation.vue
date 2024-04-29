@@ -94,7 +94,7 @@ const props = defineProps({
 });
 
 const setBar = ref(false);
-const langs = ref(false);
+const langs = ref(true);
 const activeLang = ref(0);
 
 const pickLang = (index) => {

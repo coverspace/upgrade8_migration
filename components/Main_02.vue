@@ -86,9 +86,9 @@
                   :alt="doc.profile_name"
                   class="w-full xl:w-1/2 h-auto profile_image"
                 />
-                <h1 class="mt-8 text-5xl text-upgrade_pink font-family-dancing">
+                <!-- <h1 class="mt-8 text-5xl text-upgrade_pink font-family-dancing">
                   {{ doc.profile_name }}
-                </h1>
+                </h1> -->
               </div>
             </li>
           </ul>
