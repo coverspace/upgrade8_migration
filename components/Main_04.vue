@@ -5,7 +5,7 @@
         <div
           class="flex flex-col justify-center items-center gap-4 xl:gap-10 my-8 xl:my-16 h-full"
         >
-          <ContentDoc path="main/block_04" v-slot="{ doc }">
+          <ContentDoc :path="'main/block_04' + langGlobal" v-slot="{ doc }">
             <h1
               class="text-4xl xl:text-7xl text-center font-bold bg-upgrade_gradient py-2"
             >
@@ -65,17 +65,14 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import IconArrow from "./../components/icons/IconArrow.vue";
-const activeTab = ref<number>(0);
-const activeItem = ref<number>(0);
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
 
-const pickItem = (index: number) => {
+const activeTab = ref(0);
+const activeItem = ref(0);
+
+const pickItem = (index) => {
   activeItem.value = index;
 };
 </script>
-<style lang="css" scoped>
-div::after {
-  content: "";
-}
-</style>

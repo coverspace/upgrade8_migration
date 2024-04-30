@@ -41,7 +41,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const { data: content } = await useAsyncData("contact", () => {
   return queryContent("/_partials/contact").where({ _partial: true }).find();
 });

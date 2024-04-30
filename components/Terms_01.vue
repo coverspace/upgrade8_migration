@@ -4,10 +4,14 @@
       <div
         class="flex flex-col justify-start items-start w-full my-8 shadow-lg"
       >
-        <ContentDoc path="terms/block_01" v-slot="{ doc }">
+        <ContentDoc :path="'terms/block_01' + langGlobal" v-slot="{ doc }">
           <ContentRenderer :value="doc" class="marked" />
         </ContentDoc>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+</script>

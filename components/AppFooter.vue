@@ -28,8 +28,9 @@
   </footer>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 const currentYear = ref(new Date().getFullYear());
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
 
 const { data: content } = await useAsyncData("footer", () => {
   return queryContent("/_partials/footer").where({ _partial: true }).find();

@@ -1,8 +1,16 @@
 ---
 languages:
-  - language: "🇬🇧 English"
-  - language: "🇩🇪 Deutsch"
-  - language: "🇭🇺 Magyar"
+  - language:
+    flag: "🇬🇧 English"
+    short: ".en"
+
+  - language:
+    flag: "🇩🇪 Deutsch"
+    short: ".ge"
+
+  - language:
+    flag: "🇭🇺 Magyar"
+    short: ".hu"
 ---
 
 Languages

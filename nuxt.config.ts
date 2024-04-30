@@ -1,6 +1,14 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: [
+    "@nuxt/content",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "@nuxtjs/i18n",
+  ],
+  i18n: {
+    vueI18n: "./i18n.config.ts",
+  },
   css: ["assets/css/markdown.css"],
   image: {
     dir: "assets/images",

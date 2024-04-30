@@ -5,13 +5,12 @@
         <div
           class="flex flex-col justify-center items-center gap-4 xl:gap-10 my-8 xl:my-16"
         >
-          <ContentDoc path="contact/block_01" v-slot="{ doc }">
+          <ContentDoc :path="'contact/block_01' + langGlobal" v-slot="{ doc }">
             <h1
-              class="text-3xl md:text-5xl xl:text-7xl text-center font-bold bg-upgrade_gradient"
+              class="text-3xl md:text-5xl xl:text-7xl py-2 text-center font-bold bg-upgrade_gradient"
             >
               {{ doc.label }}
             </h1>
-
             <ContentRenderer
               :value="doc"
               class="text-3xl xl:text-4xl xl:w-2/3 mx-8 xl:text-center text-justify mb-4 font-medium text-upgrade_pink"
@@ -28,7 +27,7 @@
       >
     </div>
     <div class="col-span-12 px-4 xl:mx-0 xl:col-span-5 w-full mt-4 xl:mt-0">
-      <ContentDoc path="contact/block_01" v-slot="{ doc }">
+      <ContentDoc :path="'contact/block_01' + langGlobal" v-slot="{ doc }">
         <form
           method="POST"
           action="/.netlify/functions/sendMail"
@@ -86,3 +85,7 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+</script>

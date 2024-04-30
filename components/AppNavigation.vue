@@ -58,7 +58,7 @@
                 class="flex flex-col justify-start items-start"
               >
                 <li
-                  @click="pickLang(index)"
+                  @click="pickLang(index), (langGlobal = lang.short)"
                   class="flex flex-row justify-start items-center whitespace-nowrap text-lg text-left text-gray-600 my-1 mx-1 cursor-pointer"
                 >
                   <IconArrowItem
@@ -69,7 +69,7 @@
                         : 'text-transparent'
                     "
                   />
-                  {{ lang.language }}
+                  {{ lang.flag }}
                 </li>
               </ul>
             </div>
@@ -85,6 +85,8 @@ import IconMenu from "@/components/icons/IconMenu.vue";
 import SideBar from "@/components/partials/SideBar.vue";
 import IconLanguage from "@/components/icons/IconLanguage.vue";
 import IconArrowItem from "@/components/icons/IconArrowItem.vue";
+
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
 
 const props = defineProps({
   navigationTree: {
@@ -109,11 +111,6 @@ const openMenu = () => {
 
 const { data: langData } = await useAsyncData("languages", () => {
   return queryContent("/_partials/languages").where({ _partial: true }).find();
-});
-
-onMounted(() => {
-  // console.log("navigationTree", props.navigationTree);
-  // console.log("title", props.navigationTree[0].children[0].title);
 });
 </script>
 

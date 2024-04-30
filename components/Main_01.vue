@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12 my-8">
     <div class="col-span-12">
       <div class="flex flex-col justify-start items-center">
-        <ContentDoc path="main/block_01" v-slot="{ doc }">
+        <ContentDoc :path="'main/block_01' + langGlobal" v-slot="{ doc }">
           <div
             class="relative flex flex-col justify-center items-center w-full h-full"
           >
@@ -121,7 +121,7 @@
     </div>
 
     <Transition>
-      <ContentDoc path="main/block_01" v-slot="{ doc }">
+      <ContentDoc :path="'main/block_01' + langGlobal" v-slot="{ doc }">
         <ModalBar
           :setModal="setModal"
           @cancel="setModal = false"
@@ -134,6 +134,7 @@
 
 <script setup>
 import ModalBar from "@/components/partials/ModalBar.vue";
+const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
 
 const setModal = ref(false);
 const setModalNumber = ref(null);
