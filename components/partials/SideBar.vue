@@ -53,7 +53,7 @@
             class="flex flex-col justify-start items-start"
           >
             <li
-              @click="pickLang(index), $emit('cancel')"
+              @click="pickLang(index, lang.short), $emit('cancel')"
               class="flex flex-row justify-start items-center whitespace-nowrap text-lg text-left text-gray-600 my-1 mx-1 cursor-pointer"
             >
               <IconArrowItem
@@ -64,7 +64,7 @@
                     : 'text-transparent'
                 "
               />
-              {{ lang.language }}
+              {{ lang.flag }}
             </li>
           </ul>
         </div>
@@ -77,6 +77,8 @@
 import IconClose from "@/components/icons/IconClose.vue";
 import IconSidebar from "@/components/icons/IconSidebar.vue";
 import IconArrowItem from "@/components/icons/IconArrowItem.vue";
+
+const langGlobal = useState("langGlobalState");
 
 const props = defineProps({
   setBar: {
@@ -92,24 +94,31 @@ const emit = defineEmits(["cancel"]);
 
 const activeLang = ref(0);
 
-const pickLang = (index) => {
+const pickLang = (index, langShort) => {
   activeLang.value = index;
+  langGlobal.value = langShort;
+  localStorage.setItem("langState", langGlobal.value);
 };
 
 const { data: langData } = await useAsyncData("languages", () => {
   return queryContent("/_partials/languages").where({ _partial: true }).find();
 });
 
-// watch(
-//   () => props.setBar,
-//   (newValue) => {
-//     if (newValue) {
-//       document.body.style.overflow = "hidden";
-//     } else {
-//       document.body.style.overflow = "auto";
-//     }
-//   }
-// );
+onMounted(() => {
+  if (localStorage.getItem("langState")) {
+    langGlobal.value = localStorage.getItem("langState");
+  } else {
+    localStorage.setItem("langState", ".en");
+  }
+
+  if (localStorage.getItem("langState") === ".en") {
+    activeLang.value = 0;
+  } else if (localStorage.getItem("langState") === ".ge") {
+    activeLang.value = 1;
+  } else if (localStorage.getItem("langState") === ".hu") {
+    activeLang.value = 2;
+  }
+});
 </script>
 
 <style lang="css" scoped>
