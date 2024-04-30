@@ -123,7 +123,7 @@
 import IconArrowRightItem from "@/components/icons/IconArrowRightItem.vue";
 import IconArrowDown from "@/components/icons/IconArrowDown.vue";
 import IconQuote from "@/components/icons/IconQuote.vue";
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 </script>
 
 <style lang="scss" scoped>

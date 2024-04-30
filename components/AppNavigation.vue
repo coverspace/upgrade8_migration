@@ -86,7 +86,8 @@ import SideBar from "@/components/partials/SideBar.vue";
 import IconLanguage from "@/components/icons/IconLanguage.vue";
 import IconArrowItem from "@/components/icons/IconArrowItem.vue";
 
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
+
 const props = defineProps({
   navigationTree: {
     type: Array,
@@ -96,13 +97,13 @@ const props = defineProps({
 
 const setBar = ref(false);
 const langs = ref(true);
-const activeLang = ref(0);
+const activeLang = ref();
 
 const pickLang = (index, langShort) => {
   activeLang.value = index;
   langs.value = !langs.value;
   langGlobal.value = langShort;
-  // localStorage.setItem("langState", langGlobal.value);
+  localStorage.setItem("langState", langGlobal.value);
 };
 
 const openMenu = () => {
@@ -115,11 +116,19 @@ const { data: langData } = await useAsyncData("languages", () => {
 });
 
 onMounted(() => {
-  // if (localStorage.getItem("langState")) {
-  //   langGlobal.value = localStorage.getItem("langState");
-  // } else {
-  //   localStorage.setItem("langState", ".en");
-  // }
+  if (localStorage.getItem("langState")) {
+    langGlobal.value = localStorage.getItem("langState");
+  } else {
+    localStorage.setItem("langState", ".en");
+  }
+
+  if (localStorage.getItem("langState") === ".en") {
+    activeLang.value = 0;
+  } else if (localStorage.getItem("langState") === ".ge") {
+    activeLang.value = 1;
+  } else if (localStorage.getItem("langState") === ".hu") {
+    activeLang.value = 2;
+  }
 });
 </script>
 

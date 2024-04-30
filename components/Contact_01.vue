@@ -87,5 +87,5 @@
 </template>
 
 <script setup>
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 </script>

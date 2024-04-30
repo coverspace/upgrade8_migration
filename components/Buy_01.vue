@@ -73,5 +73,5 @@
 
 <script setup>
 import IconCheck from "@/components/icons/IconCheck.vue";
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 </script>

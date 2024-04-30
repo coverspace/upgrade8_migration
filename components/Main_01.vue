@@ -136,7 +136,7 @@
 
 <script setup>
 import ModalBar from "@/components/partials/ModalBar.vue";
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 const setModal = ref(false);
 const setModalNumber = ref(null);
 

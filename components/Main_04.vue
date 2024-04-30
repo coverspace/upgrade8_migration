@@ -67,7 +67,7 @@
 
 <script setup>
 import IconArrow from "./../components/icons/IconArrow.vue";
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 const activeTab = ref(0);
 const activeItem = ref(0);
 

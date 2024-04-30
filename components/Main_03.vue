@@ -64,5 +64,5 @@
 import IconCheck from "@/components/icons/IconCheck.vue";
 import IconQuestion from "@/components/icons/IconQuestion.vue";
 import IconArrowRight from "@/components/icons/IconArrowRight.vue";
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
+const langGlobal = useState("langGlobalState");
 </script>
