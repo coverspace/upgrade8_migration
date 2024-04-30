@@ -58,7 +58,7 @@
                 class="flex flex-col justify-start items-start"
               >
                 <li
-                  @click="pickLang(index), (langGlobal = lang.short)"
+                  @click="pickLang(index, lang.short)"
                   class="flex flex-row justify-start items-center whitespace-nowrap text-lg text-left text-gray-600 my-1 mx-1 cursor-pointer"
                 >
                   <IconArrowItem
@@ -87,7 +87,6 @@ import IconLanguage from "@/components/icons/IconLanguage.vue";
 import IconArrowItem from "@/components/icons/IconArrowItem.vue";
 
 const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
-
 const props = defineProps({
   navigationTree: {
     type: Array,
@@ -99,9 +98,11 @@ const setBar = ref(false);
 const langs = ref(true);
 const activeLang = ref(0);
 
-const pickLang = (index) => {
+const pickLang = (index, langShort) => {
   activeLang.value = index;
   langs.value = !langs.value;
+  langGlobal.value = langShort;
+  // localStorage.setItem("langState", langGlobal.value);
 };
 
 const openMenu = () => {
@@ -111,6 +112,14 @@ const openMenu = () => {
 
 const { data: langData } = await useAsyncData("languages", () => {
   return queryContent("/_partials/languages").where({ _partial: true }).find();
+});
+
+onMounted(() => {
+  // if (localStorage.getItem("langState")) {
+  //   langGlobal.value = localStorage.getItem("langState");
+  // } else {
+  //   localStorage.setItem("langState", ".en");
+  // }
 });
 </script>
 

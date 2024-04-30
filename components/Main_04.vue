@@ -14,8 +14,8 @@
 
             <div class="grid grid-cols-12 w-full xl:w-[75vw]">
               <div
-                v-for="(item, index) in doc?.questions[activeTab]"
-                :key="question"
+                v-for="item in doc?.questions[activeTab]"
+                :key="item"
                 class="col-span-12 mx-4 xl:mx-0"
               >
                 <div v-for="(set, index) in item" :key="set">
@@ -68,7 +68,6 @@
 <script setup>
 import IconArrow from "./../components/icons/IconArrow.vue";
 const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
-
 const activeTab = ref(0);
 const activeItem = ref(0);
 

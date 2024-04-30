@@ -95,7 +95,7 @@
           </div>
 
           <div
-            v-for="(item, index) in doc.sets"
+            v-for="item in doc.sets"
             :key="item"
             class="flip-card flex flex-wrap justify-center items-center gap-4 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] my-8 md:hidden"
           >
@@ -121,13 +121,15 @@
     </div>
 
     <Transition>
-      <ContentDoc :path="'main/block_01' + langGlobal" v-slot="{ doc }">
-        <ModalBar
-          :setModal="setModal"
-          @cancel="setModal = false"
-          :desData="doc.sets[setModalNumber]"
-        />
-      </ContentDoc>
+      <div>
+        <ContentDoc :path="'main/block_01' + langGlobal" v-slot="{ doc }">
+          <ModalBar
+            :setModal="setModal"
+            @cancel="setModal = false"
+            :desData="doc.sets[setModalNumber]"
+          />
+        </ContentDoc>
+      </div>
     </Transition>
   </div>
 </template>
@@ -135,14 +137,11 @@
 <script setup>
 import ModalBar from "@/components/partials/ModalBar.vue";
 const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
-
 const setModal = ref(false);
 const setModalNumber = ref(null);
 
 const openModal = (index) => {
   setModalNumber.value = index;
-  // console.log("openModal", index);
-  // console.log("setModalNumber", setModalNumber);
   setModal.value = !setModal.value;
 };
 </script>

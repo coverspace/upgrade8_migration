@@ -22,13 +22,13 @@
         <div class="flex flex-row justify-start items-center gap-4">
           <input
             type="checkbox"
-            :name="terms + index.toString()"
-            :id="terms + index.toString()"
+            :name="'terms' + index.toString()"
+            :id="'terms' + index.toString()"
             class="transform scale-150 cursor-pointer"
             required
           />
           <label
-            :for="terms + index.toString()"
+            :for="'terms' + index.toString()"
             class="text-justify text-sm xl:text-xl text-gray-600 font-normal cursor-pointer"
             >{{ item.text_terms }}</label
           >

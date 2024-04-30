@@ -24,15 +24,4 @@ const route = useRoute();
 const { data: navigation } = await useAsyncData("navigation", () => {
   return fetchContentNavigation();
 });
-
-const langGlobal = useState("my-shallow-state", () => shallowRef(".en"));
-
-onMounted(() => {
-  if (localStorage.getItem("langState")) {
-    langGlobal = localStorage.getItem("langState");
-  } else {
-    localStorage.setItem("langState", langGlobal.value);
-  }
-  console.log("Hola!");
-});
 </script>

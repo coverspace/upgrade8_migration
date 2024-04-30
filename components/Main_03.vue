@@ -20,7 +20,7 @@
             >
               <li
                 v-for="item in doc.list_1"
-                :key="index"
+                :key="item"
                 class="flex items-center gap-4 text-gray-500 text-2xl font-family-arial"
               >
                 <span class="">
@@ -39,7 +39,7 @@
             >
               <li
                 v-for="item in doc.list_2"
-                :key="index"
+                :key="item"
                 class="flex items-center gap-4 text-gray-500 text-2xl font-family-arial"
               >
                 <span>

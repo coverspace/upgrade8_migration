@@ -3,17 +3,13 @@ export default defineI18nConfig(() => ({
   locale: "en",
   messages: {
     en: {
-      content: "en1",
+      content: ".en",
     },
     ge: {
-      content: "ge1",
+      content: ".ge",
+    },
+    hu: {
+      content: ".hu",
     },
   },
-  // content: {
-  //   locales: {
-  //     "*": {
-  //       dir: "content", // Load content from the 'content' directory for all languages
-  //     },
-  //   },
-  // },
 }));

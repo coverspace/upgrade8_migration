@@ -18,7 +18,7 @@
               >
                 <div
                   v-for="item in doc.section_1_items"
-                  :key="index"
+                  :key="item"
                   class="flex flex-row justify-start items-center text-gray-500 text-lg border border-gray-300 rounded-full"
                 >
                   <IconArrowRightItem
@@ -38,7 +38,7 @@
               >
                 <div
                   v-for="item in doc.section_2_items"
-                  :key="index"
+                  :key="item"
                   class="flex flex-row justify-start items-center text-gray-500 text-lg border border-gray-300 rounded-full"
                 >
                   <IconArrowRightItem
@@ -70,7 +70,7 @@
               >
                 <div
                   v-for="item in doc.section_5_items"
-                  :key="index"
+                  :key="item"
                   class="flex flex-row justify-start items-center text-gray-500 text-lg"
                 >
                   <p class="bg-gray-100 rounded-md py-1 px-2">
@@ -101,7 +101,7 @@
           >
             <div
               v-for="item in doc.section_6_items"
-              :key="index"
+              :key="item"
               class="flex flex-col justify-start items-end gap-4 bg-gray-50 px-6 py-4 rounded-lg shadow-lg"
             >
               <p class="font-family-arial text-gray-500 text-justify text-lg">

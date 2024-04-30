@@ -40,7 +40,7 @@
           <ul
             class="flex flex-col justify-start items-start xl:mx-8 gap-8 my-4 mx-auto"
           >
-            <li v-for="item in doc.sets" :key="index" class="">
+            <li v-for="item in doc.sets" :key="item" class="">
               <p
                 class="text-upgrade_pink font-bold text-2xl flex flex-row justify-start items-start gap-4"
               >
