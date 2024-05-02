@@ -45,7 +45,7 @@
 
 <script setup>
 const { data: content } = await useAsyncData("contact", () => {
-  return queryContent("/_partials/contact/index.en")
+  return queryContent("/_partials/contact/index.hu")
     .where({ _partial: true })
     .find();
 });

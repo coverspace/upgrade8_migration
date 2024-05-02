@@ -2,15 +2,18 @@
 languages:
   - language:
     flag: "🇬🇧 English"
-    short: ".en"
+    path: "/"
+    number: 0
 
   - language:
     flag: "🇩🇪 Deutsch"
-    short: ".ge"
+    path: "/ge"
+    number: 1
 
   - language:
     flag: "🇭🇺 Magyar"
-    short: ".hu"
+    path: "/hu"
+    number: 2
 ---
 
 Languages

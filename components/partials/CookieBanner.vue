@@ -55,10 +55,23 @@
 
 <script setup>
 import IconCookies from "@/components/icons/IconCookies.vue";
-import { ref } from "vue";
+
+const router = useRouter();
 
 const { data: content } = await useAsyncData("cookies", () => {
-  return queryContent("/_partials/cookies").where({ _partial: true }).find();
+  if (router.currentRoute.value.fullPath.includes("/ge")) {
+    return queryContent("/_partials/cookies/index.ge")
+      .where({ _partial: true })
+      .find();
+  } else if (router.currentRoute.value.fullPath.includes("/hu")) {
+    return queryContent("/_partials/cookies/index.hu")
+      .where({ _partial: true })
+      .find();
+  } else {
+    return queryContent("/_partials/cookies/index.en")
+      .where({ _partial: true })
+      .find();
+  }
 });
 
 const cookieAccepted = ref(false);

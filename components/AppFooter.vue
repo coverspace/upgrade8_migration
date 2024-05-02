@@ -31,7 +31,21 @@
 <script setup>
 const currentYear = ref(new Date().getFullYear());
 const langGlobal = useState("langGlobalState");
-const { data: content } = await useAsyncData("footer", () => {
-  return queryContent("/_partials/footer").where({ _partial: true }).find();
+const router = useRouter();
+
+const { data: content } = useAsyncData("footer", () => {
+  if (router.currentRoute.value.fullPath.includes("/ge")) {
+    return queryContent("/_partials/footer/index.ge")
+      .where({ _partial: true })
+      .find();
+  } else if (router.currentRoute.value.fullPath.includes("/hu")) {
+    return queryContent("/_partials/footer/index.hu")
+      .where({ _partial: true })
+      .find();
+  } else {
+    return queryContent("/_partials/footer/index.en")
+      .where({ _partial: true })
+      .find();
+  }
 });
 </script>

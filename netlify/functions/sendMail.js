@@ -28,10 +28,19 @@ exports.handler = async (event) => {
       emailData
     );
 
+    let redirectLocation = "/success";
+    if (
+      event.headers.referer &&
+      (event.headers.referer.includes("/ge") ||
+        event.headers.referer.includes("/hu"))
+    ) {
+      redirectLocation = `${event.headers.referer.split("/")[3]}/success`;
+    }
+
     return {
       statusCode: 302,
       headers: {
-        Location: "/success",
+        Location: redirectLocation,
       },
       body: "", // Empty body is required for a response
     };

@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12">
     <div class="col-span-12 bg-white shadow-md">
       <div class="xl:hidden flex flex-row justify-between items-center">
-        <a href="/">
+        <a :href="currentLangPath">
           <NuxtImg src="logo_only.png" class="w-32 h-auto my-6 mx-4" />
         </a>
         <h1 class="text-xl sm:text-3xl text-upgrade_pink font-bold">
@@ -28,22 +28,23 @@
         class="hidden xl:flex flex-row justify-between items-center w-3/5 mx-auto"
       >
         <div class="flex flex-row justify-between items-center gap-3 py-4">
-          <a href="/">
+          <a :href="currentLangPath">
             <NuxtImg src="logo_only.png" class="w-40 h-auto" />
           </a>
           <h1 class="text-3xl text-upgrade_pink font-bold">Upgrade-8</h1>
         </div>
         <ul class="flex flex-row justify-end items-center gap-8">
           <li
-            v-for="(item, index) in navigationTree.slice(0, 3)"
-            :key="index"
+            v-for="(item, index) in navMenu[navMenuNumber]"
+            :key="item"
             class="text-3xl text-upgrade_pink hover:text-upgrade_gold"
           >
-            <NuxtLink :to="item._path === '/main' ? '/' : item._path">
-              {{ item.children[0].title }}
+            <NuxtLink :to="item.link">
+              {{ item.menu }}
             </NuxtLink>
           </li>
-          <li class="relative hidden">
+
+          <li class="relative">
             <IconLanguage
               @click="langs = !langs"
               class="w-10 h-auto p-2 border rounded-lg cursor-pointer bg-gray-50 focus:bg-gray-200 text-gray-500"
@@ -59,17 +60,17 @@
                 class="flex flex-col justify-start items-start"
               >
                 <li
-                  @click="pickLang(index, lang.short)"
+                  @click="pickLang(index, lang.path, lang.number)"
                   class="flex flex-row justify-start items-center whitespace-nowrap text-lg text-left text-gray-600 my-1 mx-1 cursor-pointer"
                 >
-                  <IconArrowItem
+                  <!-- <IconArrowItem
                     class="w-4 h-auto mr-2"
                     :class="
                       index === activeLang
                         ? 'text-upgrade_darkgreen'
                         : 'text-transparent'
                     "
-                  />
+                  /> -->
                   {{ lang.flag }}
                 </li>
               </ul>
@@ -89,6 +90,7 @@ import IconArrowItem from "@/components/icons/IconArrowItem.vue";
 
 const langGlobal = useState("langGlobalState");
 const { locale, setLocale } = useI18n();
+const router = useRouter();
 
 const props = defineProps({
   navigationTree: {
@@ -100,10 +102,69 @@ const props = defineProps({
 const setBar = ref(false);
 const langs = ref(true);
 const activeLang = ref();
+const currentLangPath = ref("");
+const navMenuNumber = ref(0);
+const navMenu = ref([
+  [
+    {
+      link: "/",
+      menu: "Home",
+    },
+    {
+      link: "/contact",
+      menu: "About",
+    },
+    {
+      link: "/buy",
+      menu: "Buy",
+    },
+  ],
+  [
+    {
+      link: "/ge",
+      menu: "Startseite",
+    },
+    {
+      link: "/ge/contact",
+      menu: "Über",
+    },
+    {
+      link: "/ge/buy",
+      menu: "Kaufen",
+    },
+  ],
+  [
+    {
+      link: "/hu",
+      menu: "Kezdőlap",
+    },
+    {
+      link: "/hu/contact",
+      menu: "Rólunk",
+    },
+    {
+      link: "/hu/buy",
+      menu: "Vásárlás",
+    },
+  ],
+]);
 
-const pickLang = (index, langShort) => {
+const pickLang = (index, langPath, langNumber) => {
   activeLang.value = index;
   langs.value = !langs.value;
+  navMenuNumber.value = langNumber;
+  router.push(langPath);
+
+  // console.log("navMenuNumber.value", navMenuNumber.value);
+
+  // if (langNumber === 0) {
+  //   currentLangPath.value = "/";
+  // } else if (langNumber === 1) {
+  //   currentLangPath.value = "/ge";
+  // } else if (langNumber === 2) {
+  //   currentLangPath.value = "/hu";
+  // }
+
   // langGlobal.value = langShort;
   // localStorage.setItem("langState", langGlobal.value);
 };
@@ -117,7 +178,21 @@ const { data: langData } = await useAsyncData("languages", () => {
   return queryContent("/_partials/languages").where({ _partial: true }).find();
 });
 
+watchEffect(() => {
+  if (router.currentRoute.value.fullPath === "/") {
+    currentLangPath.value = "/";
+    navMenuNumber.value = 0;
+  } else if (router.currentRoute.value.fullPath.includes("/ge")) {
+    currentLangPath.value = "/ge";
+    navMenuNumber.value = 1;
+  } else if (router.currentRoute.value.fullPath.includes("/hu")) {
+    currentLangPath.value = "/hu";
+    navMenuNumber.value = 2;
+  }
+});
+
 onMounted(() => {
+  console.log("navMenu", navMenu);
   //   if (localStorage.getItem("langState")) {
   //     langGlobal.value = localStorage.getItem("langState");
   //   } else {
