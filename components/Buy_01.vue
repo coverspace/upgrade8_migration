@@ -5,7 +5,7 @@
         <div
           class="flex flex-col justify-center items-center gap-4 xl:gap-10 my-8 xl:my-16"
         >
-          <ContentDoc :path="'buy/block_01' + langGlobal" v-slot="{ doc }">
+          <ContentDoc path="buy/block_01.en" v-slot="{ doc }">
             <h1
               class="text-3xl md:text-5xl xl:text-7xl text-center py-2 font-bold bg-upgrade_gradient"
             >
@@ -28,7 +28,7 @@
       >
     </div>
     <div class="col-span-12 px-4 xl:mx-0 xl:col-span-5 w-full mt-4 xl:mt-0">
-      <ContentDoc :path="'buy/block_01' + langGlobal" v-slot="{ doc }">
+      <ContentDoc path="buy/block_01.en" v-slot="{ doc }">
         <div
           class="flex flex-col justify-start items-start gap-4 xl:gap-8 px-8 py-12 shadow-xl bg-gray-50 rounded w-full md:w-2/3 lg:w-1/2 mx-auto xl:w-full"
         >
@@ -74,4 +74,5 @@
 <script setup>
 import IconCheck from "@/components/icons/IconCheck.vue";
 const langGlobal = useState("langGlobalState");
+const localePath = useLocalePath();
 </script>

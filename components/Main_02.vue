@@ -2,7 +2,7 @@
   <div class="grid grid-cols-12 my-8">
     <div class="col-span-12">
       <div class="flex flex-col justify-start items-center relative">
-        <ContentDoc :path="'main/block_02' + langGlobal" v-slot="{ doc }">
+        <ContentDoc path="main/block_02.en" v-slot="{ doc }">
           <ContentRenderer
             :value="doc"
             class="text-4xl xl:text-7xl w-3/5 xl:w-1/2 py-2 my-16 text-center font-bold bg-upgrade_gradient"

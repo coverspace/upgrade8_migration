@@ -4,7 +4,7 @@
       <div
         class="flex flex-col justify-start items-start w-full my-8 shadow-lg"
       >
-        <ContentDoc :path="'privacy/block_01' + langGlobal" v-slot="{ doc }">
+        <ContentDoc path="privacy/block_01.en" v-slot="{ doc }">
           <ContentRenderer :value="doc" class="marked" />
         </ContentDoc>
       </div>

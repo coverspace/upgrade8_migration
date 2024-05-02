@@ -14,6 +14,7 @@
           />
         </span>
       </div>
+
       <Transition>
         <SideBar
           :setBar="setBar"
@@ -87,6 +88,7 @@ import IconLanguage from "@/components/icons/IconLanguage.vue";
 import IconArrowItem from "@/components/icons/IconArrowItem.vue";
 
 const langGlobal = useState("langGlobalState");
+const { locale, setLocale } = useI18n();
 
 const props = defineProps({
   navigationTree: {
@@ -102,8 +104,8 @@ const activeLang = ref();
 const pickLang = (index, langShort) => {
   activeLang.value = index;
   langs.value = !langs.value;
-  langGlobal.value = langShort;
-  localStorage.setItem("langState", langGlobal.value);
+  // langGlobal.value = langShort;
+  // localStorage.setItem("langState", langGlobal.value);
 };
 
 const openMenu = () => {
@@ -116,19 +118,18 @@ const { data: langData } = await useAsyncData("languages", () => {
 });
 
 onMounted(() => {
-  if (localStorage.getItem("langState")) {
-    langGlobal.value = localStorage.getItem("langState");
-  } else {
-    localStorage.setItem("langState", ".en");
-  }
-
-  if (localStorage.getItem("langState") === ".en") {
-    activeLang.value = 0;
-  } else if (localStorage.getItem("langState") === ".ge") {
-    activeLang.value = 1;
-  } else if (localStorage.getItem("langState") === ".hu") {
-    activeLang.value = 2;
-  }
+  //   if (localStorage.getItem("langState")) {
+  //     langGlobal.value = localStorage.getItem("langState");
+  //   } else {
+  //     localStorage.setItem("langState", "");
+  //   }
+  //   if (localStorage.getItem("langState") === "") {
+  //     activeLang.value = 0;
+  //   } else if (localStorage.getItem("langState") === ".ge") {
+  //     activeLang.value = 1;
+  //   } else if (localStorage.getItem("langState") === ".hu") {
+  //     activeLang.value = 2;
+  //   }
 });
 </script>
 
