@@ -154,6 +154,7 @@ const pickLang = (index, langPath, langNumber) => {
   langs.value = !langs.value;
   navMenuNumber.value = langNumber;
   router.push(langPath);
+  langGlobal.value = langPath;
 
   // console.log("navMenuNumber.value", navMenuNumber.value);
 

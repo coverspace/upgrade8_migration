@@ -4,6 +4,7 @@
     v-if="content"
     class="flex flex-col lg:flex-row justify-between items-center w-full mx-auto font-family-arial border-t-2 border-gray-400 py-8"
   >
+    <!-- <b>{{ langGlobal }}</b> -->
     <h1 class="text-gray-500 text-center lg:text-left w-full">
       {{ item.brand }}
       &copy;
@@ -34,6 +35,11 @@ const langGlobal = useState("langGlobalState");
 const router = useRouter();
 
 const { data: content } = useAsyncData("footer", () => {
+  // let currentLangCode = langGlobal.value.substring(1);
+  // return queryContent("/_partials/footer/index." + currentLangCode)
+  //   .where({ _partial: true })
+  //   .find();
+
   if (router.currentRoute.value.fullPath.includes("/ge")) {
     return queryContent("/_partials/footer/index.ge")
       .where({ _partial: true })

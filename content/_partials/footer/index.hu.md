@@ -1,19 +1,19 @@
 ---
 brand: "Szerzői jog"
 title: "Upgrade-8.net"
-link: "/en"
+link: "/"
 footer_buttons:
   - button:
     title: "Adatvédelmi irányelvek"
-    link: "/en/privacy"
+    link: "/privacy"
 
   - button:
     title: "Felhasználási feltételek"
-    link: "/en/terms"
+    link: "/terms"
 
   - button:
     title: "Vásárlás"
-    link: "/en/buy"
+    link: "/buy"
 ---
 
 Minden jog fenntartva
