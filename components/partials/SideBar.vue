@@ -45,8 +45,8 @@
             {{ item.children[0].title }}
           </NuxtLink>
         </li>
-        <hr class="border-b border-[#d051b7] w-full" />
-        <div v-for="item in langData" class="font-family-arial mt-4">
+        <hr class="border-b border-[#d051b7] w-full hidden" />
+        <div v-for="item in langData" class="font-family-arial mt-4 hidden">
           <ul
             v-for="(lang, index) in item.languages"
             :key="index"

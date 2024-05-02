@@ -43,7 +43,7 @@
               {{ item.children[0].title }}
             </NuxtLink>
           </li>
-          <li class="relative">
+          <li class="relative hidden">
             <IconLanguage
               @click="langs = !langs"
               class="w-10 h-auto p-2 border rounded-lg cursor-pointer bg-gray-50 focus:bg-gray-200 text-gray-500"
