@@ -111,6 +111,10 @@ const navMenu = ref([
       menu: "Home",
     },
     {
+      link: "/guide",
+      menu: "Guide",
+    },
+    {
       link: "/contact",
       menu: "About",
     },
@@ -125,6 +129,10 @@ const navMenu = ref([
       menu: "Startseite",
     },
     {
+      link: "/ge/guide",
+      menu: "Führung",
+    },
+    {
       link: "/ge/contact",
       menu: "Über",
     },
@@ -137,6 +145,10 @@ const navMenu = ref([
     {
       link: "/hu",
       menu: "Kezdőlap",
+    },
+    {
+      link: "/hu/guide",
+      menu: "Útmutató",
     },
     {
       link: "/hu/contact",
