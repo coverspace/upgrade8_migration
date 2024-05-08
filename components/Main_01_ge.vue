@@ -9,7 +9,7 @@
             <NuxtImg
               :src="doc.image_0"
               :alt="doc.image_0"
-              class="md:rounded-full"
+              class="md:rounded-full xl:h-[80vh]"
             />
 
             <div class="absolute top-0 md:top-8 text-center font-family-arial">
