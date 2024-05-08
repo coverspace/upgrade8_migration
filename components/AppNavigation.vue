@@ -205,7 +205,7 @@ watchEffect(() => {
 });
 
 onMounted(() => {
-  console.log("navMenu", navMenu);
+  // console.log("navMenu", navMenu);
   //   if (localStorage.getItem("langState")) {
   //     langGlobal.value = localStorage.getItem("langState");
   //   } else {
